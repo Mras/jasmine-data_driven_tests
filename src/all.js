@@ -1,6 +1,6 @@
 "use strict";
 
-(function() {
+module.exports = function() {
 
 var root = this,
     toString = Object.prototype.toString;
@@ -142,4 +142,4 @@ root.xall = xall;
 root.using = using;
 root.xusing = xusing;
 
-}).call(this);
+}
