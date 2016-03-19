@@ -4,7 +4,7 @@ module.exports = function(that) {
 var root = that,
     toString = Object.prototype.toString;
 
-var all = function all(description, dataset, fn) {
+function all(description, dataset, fn) {
 	return createDataDrivenSpecs(it, description, dataset, fn, true);
 }
 
