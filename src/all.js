@@ -1,24 +1,23 @@
 "use strict";
 
-module.exports = function() {
-
-var root = this,
+module.exports = function(that) {
+var root = that,
     toString = Object.prototype.toString;
 
-function all(description, dataset, fn) {
-	return createDataDrivenSpecs(root.it, description, dataset, fn, true);
+var all = function all(description, dataset, fn) {
+	return createDataDrivenSpecs(it, description, dataset, fn, true);
 }
 
 function xall(description, dataset, fn) {
-	return createDataDrivenSpecs(root.xit, description, dataset, fn, true);
+	return createDataDrivenSpecs(xit, description, dataset, fn, true);
 }
 
 function using(description, dataset, fn) {
-	return createDataDrivenSpecs(root.describe, description, dataset, fn, false);
+	return createDataDrivenSpecs(describe, description, dataset, fn, false);
 }
 
 function xusing(description, dataset, fn) {
-	return createDataDrivenSpecs(root.xdescribe, description, dataset, fn, false);
+	return createDataDrivenSpecs(xdescribe, description, dataset, fn, false);
 }
 
 function createSyncDataDrivenFn(args, fn) {
@@ -108,7 +107,7 @@ function createDataDrivenSpecs(specProvider, description, dataset, fn, isAsyncAl
 	}
 
 	// Create the suite and specs
-	suite = root.describe(description, function() {
+	suite = describe(description, function() {
 		for (i = 0, length = specs.length; i < length; i++) {
 			specProvider(specs[i].description, specs[i].fn);
 		}
@@ -142,4 +141,4 @@ root.xall = xall;
 root.using = using;
 root.xusing = xusing;
 
-}
+};
